@@ -39,57 +39,88 @@
         </form>
         <div class="p-2 mt-8 mb-10 w-auto bg-white shadow-md rounded-xl flex flex-col items-center">
             <div class="overflow-y-scroll overflow-x-scroll bg-black container mx-auto px-8 py-5 h-[60vh]">
-                <button class="bg-gray-500 absolute right-12 rounded-full text-gray-50]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <li><a href="#zoom" class="bg-gray-500 absolute right-12 rounded-full text-[#F8F8F8] hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-                  </svg>
-                </button>
-                <li><a href="map.html" class="bg-[#604CC3] absolute right-12 rounded-full text-[#F8F8F8] hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                    <path fill-rule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
                   </svg></a></li>
+                <button class="bg-[#604CC3] mt-8 absolute right-12 rounded-full text-gray-50"><a href="map.html" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                  </svg></a>
                 </button>
                 <div class="bg-black container mx-auto px-8 py-10 w-[100vh]">
                     <div class="items-end grid grid-cols-3 gap-8">
-                        <div class="flex flex-col">
+                        <div class="group flex flex-col">
                             <div class="bg-[#604CC3] h-10 border border-1 border-black"></div>
-                            <div class="bg-[#F8F8F8] h-24 border border-1 border-black"></div> 
-                            <div class="bg-[#F8F8F8] h-32 border border-1 border-black"></div> 
-                            <div class="bg-[#49C0FF] h-10 border border-1 border-black"></div>
-                            <div class="bg-[#FF5ABD] h-10 border border-1 border-black"></div>
-                            <div class="bg-[#F8F8F8] h-40 border border-1 border-black"></div> 
-                            <div class="bg-[#F8F8F8] h-40 border border-1 border-black"></div> 
-                            <div class="bg-[#F8F8F8] h-40 border border-1 border-black"></div> 
+                            <button class="bg-[#F8F8F8] h-24 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                            <button class="bg-[#F8F8F8] h-32 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                            <button class="bg-[#49C0FF] h-10 border border-1 border-black"></button>
+                            <button class="bg-[#FF5ABD] h-10 border border-1 border-black"></button>
+                            <button class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                            <button class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                            <button id="openModal" class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                L203
+                            </button>
+                            <!-- Modal Overlay -->
+                            <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+                                <div class="flex items-center justify-center h-full">
+                                    <div class="w-[60%] max-w-md h-auto max-h-[80vh] bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                                        <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
+                                            <h3 id="hs-scroll-inside-body-modal-label" class="font-bold text-gray-800 dark:text-white">
+                                                L203
+                                            </h3>
+                                            <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-scroll-inside-body-modal">
+                                                <span id="closeModal" class="absolute mb-1 items-center text-2xl">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden max-h-[50vh]"> <!-- Use two columns on medium screens and above -->
+                                            <div class="flex items-center justify-center p-4"> <!-- Center the image -->
+                                                <img class="w-full h-auto max-h-[80%]" src="https://www.kmitl.ac.th/sites/default/files/2022-11/55.1.jpg" alt="Lab Image">
+                                            </div>
+                                            <div class="flex flex-col p-4 overflow-y-auto"> <!-- Allow only the text section to scroll -->
+                                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">ห้องปฏิบัติการ 203</h3>
+                                                <p class="mt-1 text-gray-800 dark:text-neutral-400">
+                                                    ออกจากลิฟต์มาฝั่งขวามือ เดินตรงไปเรื่อย ๆ จะอยู่ตรงข้ามห้องน้ำหญิง
+                                                </p>
+                                            </div>
+                                        </div>                                    
+                                        <div class="flex justify-end m-4"> <!-- Ensure the button is within the main container -->
+                                            <button id="confirmModal" class="bg-[#FF7F3E] text-white px-4 py-2 rounded hover:bg-[#e57b2d]">Go</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script src="overlay.js"></script>
                             <div class="bg-[#604CC3] h-10 border border-1 border-black"></div>
                         </div>
                         <div class="flex flex-col">
                             <div class="bg-black h-38 border border-1 border-black"></div> 
                             <div class="bg-black h-10 border border-1 border-black"></div> 
-                            <div class="bg-[#F8F8F8] h-32 border border-1 border-black"></div> 
-                            <div class="bg-[#80C4E9] h-14 mb-10 border border-1 border-black"></div> 
+                            <button class="bg-[#F8F8F8] h-32 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
+                            <button class="bg-[#80C4E9] h-14 mb-10 border border-1 border-black">Lift</button> 
                             <div class="bg-[#604CC3] h-40 mb-10 border border-1 border-black"></div> 
                             <div class="h-40 grid grid-cols-2">
-                                <div class="bg-[#F8F8F8] border border-1 border-black"></div>
+                                <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                                 <div class="h-40 grid grid-rows-3 bg-white">
-                                    <div class="bg-[#F8F8F8] border border-1 border-black"></div>
-                                    <div class="bg-[#F8F8F8] border border-1 border-black"></div>
-                                    <div class="bg-[#F8F8F8] border border-1 border-black"></div>
+                                    <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                                    <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
+                                    <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
                                 </div>
                             </div> 
-                            <div class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black"></div> 
+                            <button class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black realtive overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                             <div class="h-40 grid grid-cols-2">
-                                <div class="bg-[#FF5ABD] border border-1 border-black"></div>
-                                <div class="bg-[#49C0FF] border border-1 border-black"></div>
+                                <button class="bg-[#FF5ABD] border border-1 border-black"></button>
+                                <button class="bg-[#49C0FF] border border-1 border-black"></button>
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <div class="bg-black h-38 border border-1 border-black"></div> 
+                            <div class="bg-black h-10 border border-1 border-black"></div> 
                             <div class="bg-black h-10 border border-1 border-black"></div> 
                             <div class="h-32 border border-1 border-[#604CC3]"></div> 
                             <div class="h-14 grid grid-cols-2">
                                 <div class="bg-black h-14 border border-1 border-black"></div>
                                 <div class="bg-blue-800 h-14 border border-1 border-black"></div>
                             </div> 
-                            <div class="bg-[#F8F8F8] h-60 border border-1 border-black"></div> 
-                            <div class="bg-[#F8F8F8] h-60 border border-1 border-black"></div>
+                            <button class="bg-[#F8F8F8] h-60 border border-1 border-black realtive overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
+                            <button class="bg-[#F8F8F8] h-60 border border-1 border-black realtive overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
                         </div>
                     </div>
                 </div>
