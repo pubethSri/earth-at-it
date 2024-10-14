@@ -37,6 +37,9 @@
         </form>
         <div class="p-2 mt-8 mb-10 w-auto bg-white shadow-md rounded-xl flex flex-col items-center">
             <div class="overflow-y-scroll bg-black container mx-auto px-8 py-5 h-[60vh]">
+                <div class="sticky top-0 z-50 px-4 py-3 flex items-center font-semibold text-sm text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                    Turn left from the stair, you will see L207, then walk straight to the end, the room L203 will be on the opposite of the woman restroom
+                </div>
                 <li><a href="zoom.html" class="bg-[#604CC3] absolute right-12 rounded-full text-[#F8F8F8] hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
                   </svg></a></li>
@@ -88,14 +91,18 @@
                         <script src="overlay.js"></script>
                         <div class="bg-[#604CC3] h-10 border border-1 border-black"></div>
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col relative"> <!-- Add relative to the parent for absolute positioning -->
                         <div class="bg-black h-38 border border-1 border-black"></div> 
                         <div class="bg-black h-10 border border-1 border-black"></div> 
                         <button class="bg-[#F8F8F8] h-32 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                         <button class="bg-[#80C4E9] h-14 mb-10 border border-1 border-black">Lift</button> 
-                        <div style="width: 500px; height: 0px; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid; position: flex; margin-right: 10px"></div>
-                        <div style="width: 33px; height: 0px; border: 1px #604CC3 solid"></div>
-                        <div style="width: 15px; height: 0px; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid"></div>
+                    
+                        <!-- Lines positioned outside the grid -->
+                        <div class="absolute" style="width: 520px; height: 0; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid; top: 250px; left: -20px;"></div> 
+                        <div class="absolute" style="width: 80px; height: 0; border: 1px #604CC3 solid; top: 250px; left: -20px;"></div>
+                        <div class="absolute" style="width: 20px; height: 0; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid; top: 240px; left: 60px;"></div>
+                        <div class="absolute" style="width: 20px; height: 0; border: 1px #604CC3 solid; top: 770px; left: -30px;"></div>
+                    
                         <div class="bg-[#604CC3] h-40 mb-10 border border-1 border-black"></div> 
                         <div class="h-40 grid grid-cols-2">
                             <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
@@ -105,12 +112,12 @@
                                 <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
                             </div>
                         </div> 
-                        <button class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black realtive overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
+                        <button class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                         <div class="h-40 grid grid-cols-2">
                             <button class="bg-[#FF5ABD] border border-1 border-black"></button>
                             <button class="bg-[#49C0FF] border border-1 border-black"></button>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="flex flex-col">
                         <div class="bg-black h-10 border border-1 border-black"></div> 
                         <div class="bg-black h-10 border border-1 border-black"></div> 
