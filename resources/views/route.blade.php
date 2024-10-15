@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#F8F8F8] font-sans leading-normal tracking-normal">
+@extends('layouts.app')
 
-    <!-- Top Section -->
-    <header class="relative bg-[#FFF6E9] border-2 border-[#F8F8F8] border-b-[#FF9F66]">
+@section('content')
+<div>
+<!-- Top Section -->
+<header class="relative bg-[#FFF6E9] border-2 border-[#F8F8F8] border-b-[#FF9F66]">
         <div class="container mx-auto py-3 px-8 items-baseline">
-            <button class="mb-4 text-[#FF7F3E] py-5"><a href="home.html" class="hover:text-yellow-300">
+            <button class="mb-4 text-[#FF7F3E] py-5"><a href="{{ route('welcome') }}" class="hover:text-yellow-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
                 </svg></a>
@@ -38,10 +31,13 @@
         </form>
         <div class="p-2 mt-8 mb-10 w-auto bg-white shadow-md rounded-xl flex flex-col items-center">
             <div class="overflow-y-scroll bg-black container mx-auto px-8 py-5 h-[60vh]">
-                <li><a href="zoom.html" class="bg-[#604CC3] absolute right-12 rounded-full text-[#F8F8F8] hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <div class="sticky top-0 z-50 px-4 py-3 flex items-center font-semibold text-sm text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                    Turn left from the stair, you will see L207, then walk straight to the end, the room L203 will be on the opposite of the women restroom
+                </div>
+                <li><a href="zoom" class="bg-[#604CC3] absolute right-12 rounded-full text-[#F8F8F8] hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
                   </svg></a></li>
-                <button class="bg-gray-500 mt-2 absolute right-12 rounded-full text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <button class="bg-gray-500 mt-8 absolute right-12 rounded-full text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
                   </svg>
                 </button>
@@ -54,7 +50,7 @@
                         <button class="bg-[#FF5ABD] h-10 border border-1 border-black"></button>
                         <button class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
                         <button class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
-                        <button id="openModal" class="bg-[#F8F8F8] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                        <button id="openModal" class="bg-[#FF7F3E] h-40 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                             L203
                         </button>
                         <!-- Modal Overlay -->
@@ -81,7 +77,7 @@
                                         </div>
                                     </div>                                    
                                     <div class="flex justify-end m-4"> <!-- Ensure the button is within the main container -->
-                                        <a href="route.html"><button id="confirmModal" class="bg-[#FF7F3E] text-white px-4 py-2 rounded hover:bg-[#e57b2d]">Go</button></a>
+                                        <button id="confirmModal" class="bg-[#FF7F3E] text-white px-4 py-2 rounded hover:bg-[#e57b2d]">Go</button>
                                     </div>
                                 </div>
                             </div>
@@ -89,11 +85,18 @@
                         <script src="overlay.js"></script>
                         <div class="bg-[#604CC3] h-10 border border-1 border-black"></div>
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col relative"> <!-- Add relative to the parent for absolute positioning -->
                         <div class="bg-black h-38 border border-1 border-black"></div> 
                         <div class="bg-black h-10 border border-1 border-black"></div> 
                         <button class="bg-[#F8F8F8] h-32 border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                         <button class="bg-[#604CC3] h-14 mb-10 border border-1 border-black">Lift</button> 
+                    
+                        <!-- Lines positioned outside the grid -->
+                        <div class="absolute" style="width: 520px; height: 0; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid; top: 250px; left: -20px;"></div> 
+                        <div class="absolute" style="width: 80px; height: 0; border: 1px #604CC3 solid; top: 250px; left: -20px;"></div>
+                        <div class="absolute" style="width: 20px; height: 0; transform: rotate(90deg); transform-origin: 0 0; border: 1px #604CC3 solid; top: 240px; left: 60px;"></div>
+                        <div class="absolute" style="width: 20px; height: 0; border: 1px #604CC3 solid; top: 770px; left: -30px;"></div>
+                    
                         <div class="bg-[#604CC3] h-40 mb-10 border border-1 border-black"></div> 
                         <div class="h-40 grid grid-cols-2">
                             <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
@@ -103,12 +106,12 @@
                                 <button class="bg-[#F8F8F8] border border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button>
                             </div>
                         </div> 
-                        <button class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black realtive overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
+                        <button class="bg-[#F8F8F8] h-20 mb-10 border-1 border-black relative overflow-hidden hover:bg-[#FF7F3E] focus:bg-[#FF7F3E] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"></button> 
                         <div class="h-40 grid grid-cols-2">
                             <button class="bg-[#FF5ABD] border border-1 border-black"></button>
                             <button class="bg-[#49C0FF] border border-1 border-black"></button>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="flex flex-col">
                         <div class="bg-black h-10 border border-1 border-black"></div> 
                         <div class="bg-black h-10 border border-1 border-black"></div> 
@@ -122,6 +125,7 @@
                     </div>
                 </div>
             </div>
+            
             <ul class="inline-flex mt-4 ">
                 <li>
                     <button class="h-8 mr-2 px-5 text-indigo-600 font-bold transition-colors duration-150 bg-white border border-1 border-[#604CC3] rounded-full focus:shadow-outline hover:bg-indigo-100"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -141,31 +145,5 @@
             </ul>
         </div>        
     </main>
-
-    <!-- Navbar -->
-    <nav class="bg-[#FF7F3E] p-4 fixed w-full z-50 bottom-0 shadow-lg">
-        <div class="container mx-auto flex justify-center items-center">
-            <ul class="flex flex-wrap justify-center space-x-12 sm:space-x-10 md:space-x-10 text-white text-sm sm:text-base">
-                <li><a href="setting.html" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  </svg>
-                  </a></li>
-                <li><a href="Create.html" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                  </svg>
-                  </a></li>
-                <li><a href="#map" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                    <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
-                  </svg>                  
-                  </a></li>
-                <li><a href="Schedule.html" class="hover:text-yellow-300"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                  </svg>
-                  </a></li>
-                <li><a href="#profile" class="hover:text-yellow-300"><div class="bg-[#FFFFFF] w-8 h-8 rounded-full"></div></a></li>
-            </ul>
-        </div>
-    </nav>
-</body>
-</html>
+</div>
+@endsection

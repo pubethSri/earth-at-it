@@ -56,7 +56,9 @@
                 </div>
             </div>
             </form>
-            <button onclick="history.back()" type="button" class="font-poppins font-medium text-sm text-[#604CC3] ring-[#604CC3] ring-2 w-full p-1.5 h-full rounded-lg tracking-wide hover:ring-2 hover:ring-blue-300 hover:text-blue-300">Cancel</button>
+            <form action="{{ route('welcome') }}">
+                <button type="submit" class="font-poppins font-medium text-sm text-[#604CC3] ring-[#604CC3] ring-2 w-full p-1.5 h-full rounded-lg tracking-wide hover:ring-2 hover:ring-blue-300 hover:text-blue-300">Cancel</button>
+            </form>
             </div>
         </main>
     </div>
